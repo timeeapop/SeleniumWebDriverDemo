@@ -71,4 +71,39 @@ public class LambdaTestDemos {
         Assert.assertTrue(successMessage.isDisplayed());
     }
 
+    @Test
+    public void singleCheckboxDemoTwo () {
+        driver.get("https://www.lambdatest.com/selenium-playground/checkbox-demo");
+        WebElement checkbox = driver.findElement(By.id("isAgeSelected"));
+        WebElement successMessage = driver.findElement(By.id("txtAge"));
+        Assert.assertFalse(successMessage.isDisplayed());
+    }
+
+    @Test
+    public void multipleCheckboxDemoCheckAllAndUncheckAll() {
+        driver.get("https://www.lambdatest.com/selenium-playground/checkbox-demo");
+        WebElement checkAllButton = driver.findElement(By.id("box"));
+        WebElement checkboxOne = driver.findElement(By.id("ex1-check1"));
+        WebElement checkboxTwo = driver.findElement(By.id("ex1-check2"));
+        WebElement checkboxThree = driver.findElement(By.id("ex1-check3"));
+        WebElement checkboxFour = driver.findElement(By.xpath("//*[@id=\"ex1-check3\"]"));
+
+        Assert.assertFalse(checkboxOne.isSelected());
+        Assert.assertFalse(checkboxTwo.isSelected());
+        Assert.assertFalse(checkboxThree.isSelected());
+        Assert.assertFalse(checkboxFour.isSelected());
+
+        checkAllButton.click();
+        Assert.assertTrue(checkboxOne.isSelected());
+        Assert.assertTrue(checkboxTwo.isSelected());
+        Assert.assertTrue(checkboxThree.isSelected());
+        Assert.assertTrue(checkboxFour.isSelected());
+
+        checkAllButton.click();
+        Assert.assertFalse(checkboxOne.isSelected());
+        Assert.assertFalse(checkboxTwo.isSelected());
+        Assert.assertFalse(checkboxThree.isSelected());
+        Assert.assertFalse(checkboxFour.isSelected());
+    }
+
 }
