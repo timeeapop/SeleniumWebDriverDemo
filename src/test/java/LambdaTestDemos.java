@@ -70,8 +70,5 @@ public class LambdaTestDemos {
         WebElement successMessage = driver.findElement(By.id("txtAge"));
         Assert.assertTrue(successMessage.isDisplayed());
     }
-    ///lalalalla
-
-
 
 }
